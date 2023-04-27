@@ -4,9 +4,9 @@ import { Injectable } from '@nestjs/common';
 export class AppService {
   getHello() {
     return {
-      status: "ok",
-      message: "API Online",
-      description: "API exemplo da disciplina de POS"
+      status: 'ok',
+      message: 'API Online',
+      description: 'API exemplo da disciplina de POS',
     };
   }
 }
