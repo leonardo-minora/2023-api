@@ -1,4 +1,4 @@
-import { Controller, Get, Res, HttpStatus } from '@nestjs/common';
+import { Controller, Get, Param, Res, HttpStatus } from '@nestjs/common';
 import { Response } from 'express';
 
 import { UfService } from './uf.service';
@@ -9,6 +9,26 @@ export class UfController {
 
   @Get()
   getHello(@Res() response: Response) {
-    response.status(HttpStatus.OK).json(this.ufService.getAll());
+    response.status(HttpStatus.OK).json({
+      status: 'ok',
+      message: 'UFs recuperadas com sucesso',
+      data: this.ufService.getAll(),
+    });
+  }
+
+  // @Get(':id')
+  // findOne(@Res() response: Response, @Param('id') id: number) {
+  //   response.status(HttpStatus.OK).json({
+  //     status: 'ok',
+  //     data: this.ufService.findOne(id),
+  //   });
+  // }
+
+  @Get(':sigla')
+  encontrarPorSigla(@Res() response: Response, @Param('sigla') sigla: string) {
+    response.status(HttpStatus.OK).json({
+      status: 'ok',
+      data: this.ufService.encontrarPorSigla(sigla),
+    });
   }
 }
