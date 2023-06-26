@@ -12,6 +12,6 @@ export class UfService {
   }
 
   encontrarPorSigla(sigla: string) {
-    return data.filter((tarefa: any) => tarefa.sigla === sigla);
+    return data.filter((tarefa: any) => tarefa.sigla == sigla);
   }
 }
