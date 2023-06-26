@@ -12,6 +12,8 @@ export class UfService {
   }
 
   encontrarPorSigla(sigla: string) {
-    return data.filter((tarefa: any) => tarefa.sigla == sigla);
+    console.info('UFs', data);
+    const uf = data.filter((tarefa: any) => tarefa.sigla == sigla);
+    return uf;
   }
 }
