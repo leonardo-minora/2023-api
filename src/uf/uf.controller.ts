@@ -25,10 +25,10 @@ export class UfController {
   // }
 
   @Get(':sigla')
-  encontrarPorSigla(@Res() response: Response, @Param('sigla') sigla: string) {
-    response.status(HttpStatus.OK).json({
+  async encontrarPorSigla(@Param('sigla') sigla: string) {
+    return {
       status: 'ok',
-      data: this.ufService.encontrarPorSigla(sigla),
-    });
+      data: await this.ufService.encontrarPorSigla(sigla),
+    };
   }
 }
