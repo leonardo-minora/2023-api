@@ -28,7 +28,7 @@ export class UfController {
   async encontrarPorSigla(@Param('sigla') sigla: string) {
     return {
       status: 'ok',
-      data: await this.ufService.encontrarPorSigla(sigla),
+      data: this.ufService.encontrarPorSigla(sigla),
     };
   }
 }
